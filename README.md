@@ -1,38 +1,49 @@
-# Mis-component
+# Mis_componente_ha
 
 ![Icono del catálogo](icon.png)
 
-Catálogo de integraciones de Home Assistant Core para **Private Git Manager**.
+Catálogo público de integraciones de Home Assistant Core para **Private Git Manager**.
+No ejecuta los servidores de Headscale Gateway o PiVigia. Contiene varias
+integraciones; para HACS/Marketplace utiliza sus repositorios individuales.
 
-## JackSignal
-
-Reproductor de audio local con avisos de Alarmo, sonidos independientes al abrir/cerrar sensores, texto a voz configurable sin YAML y receptor DLNA exclusivamente de audio. Todos los avisos comparten las prioridades del reproductor.
-
-[Guía de configuración](custom_components/jacksignal/README.md) · [Repositorio individual para HACS / Marketplace](https://github.com/Gente-del-Condado/jacksignal-ha) · [Instalador para Home Assistant OS](https://github.com/Gente-del-Condado/Mis-app/tree/main/jacksignal_installer).
-
-Elige una sola vía de actualización de la integración. Este catálogo reúne varias integraciones; para HACS utiliza el repositorio individual enlazado.
-
-## Integraciones disponibles
-
-En Home Assistant 2026.11 o posterior, usa el botón de cada integración para abrir su repositorio en el Marketplace. Si se solicita, conecta GitHub, añade el repositorio como **Integración** y pulsa **Instalar**.
-
-| Integración | Carpeta | Marketplace |
+| Integración | Guía y archivos | Repositorio individual |
 | --- | --- | --- |
-| Private Git Manager · Forgejo Backup | [pgm_forgejo_backup](custom_components/pgm_forgejo_backup/) | [![Instalar Private Git Manager · Forgejo Backup desde el Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=Gente-del-Condado&repository=HA-Private-Git-Manager&category=integration) |
-| PiVigia | [pivigia](custom_components/pivigia/) | [![Instalar PiVigia desde el Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=Gente-del-Condado&repository=pivigia-ha&category=integration) |
-| JackSignal | [jacksignal](custom_components/jacksignal/) | [![Instalar JackSignal desde el Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=Gente-del-Condado&repository=jacksignal-ha&category=integration) |
-| Headscale Gateway | [headscale_gateway](custom_components/headscale_gateway/) | [![Instalar Headscale Gateway desde el Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=Gente-del-Condado&repository=headscale-gateway-ha&category=integration) |
+| Headscale Gateway | [Componente](custom_components/headscale_gateway/) | [headscale_gateway_ha](https://github.com/Gente-del-Condado/headscale_gateway_ha) |
+| PiVigia | [Componente](custom_components/pivigia/) | [pivigia_ha](https://github.com/Gente-del-Condado/pivigia_ha) |
+| JackSignal | [Componente](custom_components/jacksignal/) | [jacksignal_ha](https://github.com/Gente-del-Condado/jacksignal_ha) |
+| Private Git Manager · Forgejo Backup | [Componente](custom_components/pgm_forgejo_backup/) | [Fuentes y guía](https://github.com/Gente-del-Condado/HA-Private-Git-Manager/blob/main/FORGEJO_BACKUPS.md) |
 
-Los proyectos publican únicamente su integración mediante GitHub Actions en Mis-component de Forgejo. Forgejo replica el catálogo a GitHub. Para instalar aplicaciones del Supervisor, usa [Mis-app](https://github.com/Gente-del-Condado/Mis-app).
+## Instalar o actualizar
 
-## Instalar o actualizar Forgejo Backup
+1. Añade este repositorio de GitHub en Private Git Manager y sincroniza `main`.
+2. En **Componentes**, selecciona la integración, revisa el commit e instala o actualiza.
+3. Reinicia Home Assistant Core cuando lo solicite. Añade la integración desde **Dispositivos y servicios**.
 
-1. En **Repositorios**, añade este catálogo con su URL SSH, rama `main` y una clave de despliegue de lectura. Verifica la huella del servidor y sincroniza.
-2. En **Componentes**, busca **Forgejo Backup**. Pulsa **Instalar integración** o **Actualizar integración**, revisa el commit y confirma.
-3. Reinicia Home Assistant Core. Para el primer uso, añade **Private Git Manager · Forgejo Backup** en **Ajustes → Dispositivos y servicios**.
+Elige una sola vía de actualización por integración. Forgejo Backup necesita un
+repositorio privado propio para guardar sus copias cifradas: ese destino es
+independiente de este catálogo público. Consulta la
+[guía de copias](https://gente-del-condado.github.io/HA-Private-Git-Manager/#copias-forgejo).
+Las aplicaciones del Supervisor se distribuyen en
+[Mis_app_ha](https://github.com/Gente-del-Condado/Mis_app_ha).
 
-Forgejo Backup necesita otro repositorio privado para almacenar las copias cifradas. La integración genera su propia clave de despliegue con escritura y mantiene el índice de copias recientes en el README que crea en ese destino.
+## Origen y publicación
 
-[Instalar componentes](https://gente-del-condado.github.io/HA-Private-Git-Manager/#componentes) · [Configurar Forgejo Backup y recuperar copias](https://gente-del-condado.github.io/HA-Private-Git-Manager/#copias-forgejo)
+Cada proyecto se mantiene primero en Forgejo, se replica a GitHub y publica
+solo su carpeta en este catálogo mediante GitHub Actions. No existe un derivado
+de esta tienda en Forgejo y los publicadores no escriben en ese servidor.
 
-El código se mantiene en [HA-Private-Git-Manager](https://github.com/Gente-del-Condado/HA-Private-Git-Manager). El flujo de publicación sincroniza la integración desde allí.
+| Proyecto | Origen Forgejo | Espejo GitHub | Carpeta publicada |
+| --- | --- | --- | --- |
+| Headscale Gateway | [Forgejo](https://gentedelcondado.es/forgejo/wolfbelmi88/headscale_gateway) | [GitHub](https://github.com/Gente-del-Condado/headscale_gateway) | `custom_components/headscale_gateway/` |
+| PiVigia | [Forgejo](https://gentedelcondado.es/forgejo/wolfbelmi88/pivigia) | [GitHub](https://github.com/Gente-del-Condado/pivigia) | `custom_components/pivigia/` |
+| JackSignal | [Forgejo](https://gentedelcondado.es/forgejo/wolfbelmi88/jacksignal) | [GitHub](https://github.com/Gente-del-Condado/jacksignal) | `custom_components/jacksignal/` |
+| Private Git Manager | [Forgejo](https://gentedelcondado.es/forgejo/wolfbelmi88/HA-Private-Git-Manager) | [GitHub](https://github.com/Gente-del-Condado/HA-Private-Git-Manager) | `custom_components/pgm_forgejo_backup/` |
+
+Headscale Gateway, PiVigia y JackSignal publican después de superar sus flujos
+de calidad en el `main` vigente de GitHub. Private Git Manager tiene publicadores
+propios por cambios en `main`. Los principales de los tres primeros son privados;
+la distribución instalable es pública. Los commits de publicación identifican
+la revisión de origen. Cada publicador conserva los demás proyectos.
+
+No edites las carpetas generadas: corrige la fuente en el principal de Forgejo.
+La publicación no instala automáticamente las actualizaciones en los equipos.
